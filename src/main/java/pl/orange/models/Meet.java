@@ -9,5 +9,11 @@ public class Meet {
         this.end = end;
     }
 
-
+    @Override
+    public String toString() {
+        return "Meet{" +
+                "start='" + start + '\'' +
+                ", end='" + end + '\'' +
+                '}';
+    }
 }
