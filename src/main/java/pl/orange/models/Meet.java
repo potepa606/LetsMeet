@@ -1,12 +1,22 @@
 package pl.orange.models;
 
-public class Meet {
-    private String start;
-    private String end;
+import java.time.LocalTime;
 
-    public Meet(String start, String end) {
+public class Meet {
+    private LocalTime start;
+    private LocalTime end;
+
+    public Meet(LocalTime start, LocalTime end) {
         this.start = start;
         this.end = end;
+    }
+
+    public LocalTime getStart() {
+        return start;
+    }
+
+    public LocalTime getEnd() {
+        return end;
     }
 
     @Override

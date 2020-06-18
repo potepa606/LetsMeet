@@ -6,6 +6,7 @@ import pl.orange.jsonParser.JSONReader;
 import pl.orange.models.Calendar;
 import pl.orange.models.Meet;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -28,7 +29,8 @@ public class CalendarsGenerator {
 
            String workStart = createWorkingStart(calendarJSON);
            String workEnd = createWorkingEnd(calendarJSON);
-           calendars.add(new Calendar(workStart,workEnd, createMeetings(calendarJSON)));
+
+           calendars.add(new Calendar(LocalTime.parse(workStart),LocalTime.parse(workEnd), createMeetings(calendarJSON)));
         }
 
 
@@ -55,7 +57,8 @@ public class CalendarsGenerator {
             JSONObject meet = (JSONObject) m;
             String startMeet = meet.get("start").toString();
             String endMeet = meet.get("end").toString();
-            meetings.add(new Meet(startMeet,endMeet));
+
+            meetings.add(new Meet(LocalTime.parse(startMeet),LocalTime.parse(endMeet)));
         }
         return meetings;
     }
